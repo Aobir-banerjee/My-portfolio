@@ -1,0 +1,917 @@
+@import url(https://fonts.googleapis.com/css?family-Poppins:wght@100;200;300;400;500;600&display-swap);
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: 'poppins', sans-serif;
+}
+
+:root {
+  --bg-color: #000000;
+  --second-bg-color: #161616;
+  --text-color: #fff;
+  --main-color: #7b4bb7;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+body{
+  background: var(--bg-color);
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+}
+html ::-webkit-scrollbar {
+  width: 0.8rem;
+}
+html ::-webkit-scrollbar-track{
+  background: var(--bg-color);
+}
+html ::-webkit-scrollbar-thumb{
+  background: var(--main-color);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 9%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--main-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+    border-bottom: 3px solid var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 995px) {
+    #menu-icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid var(--main-color);
+        border-bottom: 3px solid var(--main-color);
+        border-top-left-radius: 2rem;
+        padding: 1rem 3%;
+        background-color: var(--second-bg-color);
+        display: none;
+    }
+    .navbar.active {
+        display: block;
+    }
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+}
+
+section{
+  min-height: 100vh;
+  padding: 5rem 9% 5rem;
+}
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8rem;
+  background: var(--bg-color);
+}
+.home .home-content h1{
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+span{
+  color: var(--main-color);
+}
+.home-content h3{
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.home-img {
+  border-radius: 50%;
+}
+.home-img img {
+  position: relative;
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--main-color);
+  cursor: pointer;
+}
+.home-img img:hover{
+  transform: scale(1.01);
+  filter: drop-shadow(0 0 25px var(--main-color));
+}
+.home-content p{
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+.social-icon a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+  border: 0.2rem solid var(--main-color);
+  font-size: 2rem;
+  border-radius: 50%;
+  color: var(--main-color);
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease;
+}
+.social-icon a:hover{
+  color: #fff;
+  transform: scale(1.3)translateY(-5px);
+  background: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+}
+.btn{
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background: var(--bg-color);
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.03);
+  background-color: var(--main-color);
+  color: var(--text-color);
+  box-shadow: 0 0 25px var(--main-color);
+}
+.typing-text {
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
+}
+.typing-text span {
+  position: relative;
+}
+.typing-text span::before {
+  content: 'Software Developer';
+  color: var(--main-color);
+  animation: words 20s infinite;
+}
+.typing-text span::after{
+  content: '';
+  background: var(--bg-color);
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid var(--bg-color);
+  right: -8px;
+  animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+}
+@keyframes cursor {
+  to {
+    border-left: 3px solid var(--bg-color);
+  }
+}
+@keyframes words {
+  0%, 20% {
+    content: 'Web Developer';
+  }
+  21%, 40% {
+    content: 'Song Writer';
+  }
+  41%, 60% {
+    content: 'Music Composer';
+  }
+  61%, 80% {
+    content: 'SEO Specialist';
+  }
+  81%, 100% {
+    content: 'Master in AI-ML';
+  }
+}
+@keyframes typing {
+  10%, 15%,
+  30%, 35%,
+  50%, 55%,
+  70%, 75%,
+  90%, 95% {
+    width: 0;
+  }
+  5%, 20%,
+  25%, 40%,
+  45%, 60%,
+  65%, 80%, 85%{
+    width: calc(100% + 8px);
+  }
+  
+}
+@media(max-width:1000px){
+  .home {
+    gap: 4rem;
+  }
+}
+@media(max-width:995px) {
+  .home{
+  flex-direction: column;
+  margin: 5rem 4rem;
+  }
+.home .home-content h3{
+  font-size: 2.5rem;
+  }
+  .home-content h1 {
+    font-size: 5rem;
+  }
+  .home-img img {
+    width: 70vw;
+    margin-top: 4rem;
+  }
+}
+
+/* serv sec*/
+
+.services {
+  background: var(--second-bg-color);
+  padding: 5rem 9%;
+}
+
+.heading {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  grid-template-rows: repeat(2, 1fr);    /* Two rows */
+  gap: 2.5rem;
+  justify-items: center; /* Center the service boxes */
+}
+
+.service-box {
+  background-color: var(--main-color);
+  height: 300px;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.service-box:hover {
+  background: transparent;
+  color: var(--text-color);
+  transform: scale(1.03);
+  border: 1px solid var(--main-color);
+}
+
+.service-box .service-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.service-info h4 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.service-info p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin: auto;
+  max-height: 100px;
+}
+
+/* Media Query for mobile */
+@media (max-width: 895px) {
+  .services-container {
+    grid-template-columns: repeat(1, 1fr); /* 1 column */
+  }
+}
+
+/* skill */
+
+.skills {
+  background: var(--bg-color);
+}
+.skills .container{
+  background: #49012b46;
+  color: var(--text-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 70%;
+  margin: auto;
+  margin-top: 2rem;
+}
+.skills .container .row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  flex-wrap: wrap;
+  gap: 1.8rem;
+}
+.skills .container .bar {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 1rem;
+  background: var(--bg-color);
+  box-shadow: 0 4px 10px var(--main-color);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.skills .container .bar:hover {
+  box-shadow: 0 4px 10px var(--main-color);
+  transform: scale(1.03);
+}
+.skills .container .bar .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.skills .container .bar .info span {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+/* education */
+.education {
+  background: var(--second-bg-color);
+}
+
+/* Timeline wrapper */
+.education .timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Vertical line (timeline) */
+.education .timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white; /* Change color to fit your design */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px; /* Center the line */
+}
+
+/* Container around content */
+.education .container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* The circles on the timeline */
+.education .container::after {
+  content: '\f501';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  right: -17px;
+  background-color: rgb(252, 252, 252);
+  border: 4px solid var(--main-color);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 100;
+  font-size: 1.89rem;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Font Awesome 5 Free";
+  color: rgb(90, 64, 64);
+}
+
+/* Left-aligned container */
+.education .left {
+  left: 0;
+}
+
+/* Right-aligned container */
+.education .right {
+  left: 50%;
+}
+
+/* Arrows for left container (pointing right) */
+.education .left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Arrows for right container (pointing left) */
+.education .right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for right-side containers */
+.education .right::after {
+  left: -16px;
+}
+
+/* Actual content inside containers */
+.education .content {
+  padding: 20px 30px;
+  background-color: var(--main-color);
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries for smaller screens (below 600px) */
+@media screen and (max-width: 600px) {
+  /* Adjust timeline line for smaller screens */
+  .education .timeline::after {
+    left: 31px;
+  }
+
+  /* Full-width containers */
+  .education .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  /* Adjust arrows for left alignment */
+  .education .container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are aligned */
+  .education .left::after, .education .right::after {
+    left: 15px;
+  }
+
+  /* Make all right-side containers behave like the left ones */
+  .education .right {
+    left: 0%;
+  }
+}
+.education .content:hover {
+  background-color: #020100; /* Change background color on hover */
+  transform: translateY(-5px); /* Slightly lift the content */
+  box-shadow: 0 4px 12px rgb(195, 0, 255); /* Add shadow on hover */
+}
+
+@media screen and (max-width: 600px) {
+  .skills .container {
+    width: 90%; /* Make the container take more width on small devices */
+    padding: 1rem; /* Adjust padding for mobile */
+  }
+
+  .skills .container .row {
+    grid-template-columns: repeat(2, 1fr); /* Use 2 columns on smaller screens */
+    gap: 1rem; /* Adjust gap */
+  }
+
+  .skills .container .bar {
+    padding: 1rem; /* Adjust padding for bars */
+  }
+
+  .skills .container .bar .info span {
+    font-size: 1.5rem; /* Reduce font size for better readability */
+  }
+}
+
+/* exp */
+.experience {
+  background: var(--bg-color);
+}
+
+/* Timeline Wrapper */
+.experience .timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Vertical Timeline Line */
+.experience .timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white; /* Timeline Line Color */
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px; /* Center the line */
+}
+
+/* Container around content */
+.experience .container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+/* Circles on the Timeline */
+.experience .container::after {
+  content: '\f501'; /* Font Awesome Icon */
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  right: -17px;
+  background-color: rgb(252, 252, 252);
+  border: 4px solid var(--main-color);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 100;
+  font-size: 1.89rem;
+  text-align: center;
+  font-weight: 600;
+  font-family: "Font Awesome 5 Free";
+  color: rgb(90, 64, 64);
+}
+
+/* Left-aligned container */
+.experience .left {
+  left: 0;
+}
+
+/* Right-aligned container */
+.experience .right {
+  left: 50%;
+}
+
+/* Arrows for left container */
+.experience .left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Arrows for right container */
+.experience .right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix circle for right containers */
+.experience .right::after {
+  left: -16px;
+}
+
+/* Content Inside Containers */
+.experience .content {
+  padding: 20px 30px;
+  background-color: var(--main-color);
+  position: relative;
+  border-radius: 6px;
+  transition: all 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Hover Effect */
+.experience .content:hover {
+  background-color: var(--second-bg-color); /* Dark background on hover */
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0 4px 12px var(--hover-shadow-color); /* Add glow effect */
+}
+
+/* Media Query for Small Screens */
+@media screen and (max-width: 600px) {
+  .experience .timeline::after {
+    left: 31px;
+  }
+
+  .experience .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .experience .left::before,
+  .experience .right::before {
+    left: 60px;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+
+  .experience .left::after, 
+  .experience .right::after {
+    left: 15px;
+  }
+
+  .experience .right {
+    left: 0%;
+  }
+}
+
+/* project */
+.projects {
+  background: var(--second-bg-color);
+  padding: 5rem 9%;
+  text-align: center; /* Centers the text in the section */
+}
+
+.projects-header {
+  font-size: 3rem; /* Adjust the font size as needed */
+  font-weight: bold;
+  margin-bottom: 3rem; /* Adds spacing below the header */
+}
+
+.project-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background-color: var(--main-color);
+  width: 30%;
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-info h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.project-info p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.side-button {
+  background: var(--main-color);
+  color: var(--text-color);
+  padding: 1rem 2.8rem;
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background 0.3s ease;
+}
+
+.side-button:hover {
+  background: var(--second-bg-color);
+}
+
+.hidden-project {
+  display: none;
+}
+
+/* Show the hidden project when the button is clicked */
+.show-project .hidden-project {
+  display: block;
+}
+
+/* Desktop and larger screen styles */
+@media (min-width: 769px) {
+  .projects-header {
+    font-size: 3rem; /* Font size for tablets and larger screens */
+  }
+
+  .project-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .project-card {
+    width: 30%; 
+  }
+
+  .side-button {
+    font-size: 1.6rem;
+    padding: 1rem 2.8rem;
+  }
+}
+
+/* Mobile screen styles */
+@media (max-width: 768px) {
+  /* Adjust the width of project cards for mobile screens */
+  .project-container {
+    flex-direction: column; /* Stack cards vertically on mobile */
+    align-items: center; /* Center the project cards */
+  }
+
+  .project-card {
+    width: 90%; /* Make project cards take up most of the width */
+    margin-bottom: 2rem; /* Add some space between cards */
+  }
+
+  .projects-header {
+    font-size: 2rem; /* Make the header text smaller on mobile */
+    margin-bottom: 2rem; /* Add spacing below the header */
+  }
+
+  .project-info h3 {
+    font-size: 1.8rem; /* Reduce the font size for project titles */
+  }
+
+  .project-info p {
+    font-size: 1.2rem; /* Smaller text for descriptions */
+  }
+
+  .side-button {
+    width: 80%; /* Make the button wider on mobile */
+    max-width: 400px;
+    margin-top: 3rem;
+    padding: 1rem 2.8rem; /* Make the button slightly larger for better accessibility */
+  }
+
+  .side-button:hover {
+    background: var(--main-color); /* Change hover color for better visual feedback */
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.contact h2{
+  margin-bottom: 3rem;
+  color: white;
+}
+.contact form{
+  max-width: 70rem;
+  margin: 1rem auto;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.contact form .input-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.contact form .input-box input,
+.contact form textarea{
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  background: var(--bg-color);
+  border-radius: 0.8rem;
+  border: 2px solid var(--main-color);
+  margin: 1rem 0;
+  resize: none;
+}
+.contact form .btn {
+  margin-top: 2rem;
+}
+
+.footer{
+  position: relative;
+  bottom: 0;
+  padding: 40px 0;
+  background-color: var(--main-color);
+}
+.footer .social-icon {
+  text-align: center;
+  padding-bottom: 25px;
+  color: #000000;
+}
+.footer .social-icon a {
+  font-size: 25px;
+  color: #000000;
+  border: 2px solid black;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 10px;
+  transition: 0.3s ease;
+}
+.footer .social-icon a:hover {
+  transform: scale(1.2)translateY(-5px);
+  background: #000000;
+  color: var(--main-color);
+}
+.footer ul{
+  margin-top: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 0;
+  text-align: center;
+}
+.footer ul li a{
+  color: #000000;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s ease;
+}
+.footer ul li a:hover {
+  border-bottom: 3px solid black;
+}
+.footer ul li {
+  display: inline-block;
+  padding: 0 15px;
+}
+.footer .copyright {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+}
